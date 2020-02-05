@@ -1,0 +1,16 @@
+{
+  "app": {
+    "title": "Pierre Papier Ciseaux",
+    "description": "Un jeu de pierre papier ciseaux",
+    "new_version_available": "Une nouvelle version de l'application est disponible. Charger la nouvelle version ?"
+  },
+  "game": {
+    "game": "Jeu",
+    "play": "Jouer",
+    "play_game": "Jouer une partie",
+    "scores": "Résultats",
+    "the_scores": "Les résultats",
+    "me": "Moi",
+    "opponent": "Partenaire"
+  }
+}

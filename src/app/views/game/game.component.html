@@ -1,0 +1,46 @@
+<div>
+    <mat-toolbar>
+        <button mat-button color="primary">{{ 'game.play' | translate }}</button>
+        <h2>{{ 'game.me' | translate }}</h2>
+        <span class="fill-remaining-space"></span>
+        <button mat-fab color="primary" class="score">0</button>
+    </mat-toolbar>
+    <mat-grid-list flex cols="3" rowHeight="1:1">
+        <mat-grid-tile>
+            <i class="fa fa-hand-rock-o"></i>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div>
+                <i class="fa fa-hand-paper-o"></i>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div>
+                <i class="fa fa-hand-scissors-o"></i>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
+<div>
+    <mat-toolbar>
+        <button mat-button color="primary">{{ 'game.play' | translate }}</button>
+        <h2>{{ 'game.opponent' | translate }}</h2>
+        <span class="fill-remaining-space"></span>
+        <button mat-fab color="primary" class="score">0</button>
+    </mat-toolbar>
+    <mat-grid-list cols="3" rowHeight="1:1">
+        <mat-grid-tile>
+            <i class="fa fa-hand-rock-o"></i>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div>
+                <i class="fa fa-hand-paper-o"></i>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div>
+                <i class="fa fa-hand-scissors-o"></i>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

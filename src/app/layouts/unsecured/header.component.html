@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <span>
+    <button mat-button routerLink="/game">
+      <img mat-card-image src="assets/icons/icon-32x32.png">
+    </button>
+    {{ 'app.title' | translate }}
+  </span>
+  <span class="fill-remaining-space"></span>
+  <button mat-button routerLink="/game">{{ 'game.game' | translate }}</button>
+  <button mat-button routerLink="/scores">{{ 'game.scores' | translate }}</button>
+</mat-toolbar>
