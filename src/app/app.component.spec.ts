@@ -1,35 +1,40 @@
-import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { async, TestBed, ComponentFixture } from '@angular/core/testing';
+import { SwUpdate } from '@angular/service-worker';
+import { TranslateService, TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { AppComponent } from './app.component';
+import { SwUpdateServerMock } from './swupdate-server.mock.service';
 
 describe('AppComponent', () => {
+  let appComponent: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
   beforeEach(async(() => {
+    const translateServiceSpy: { getTheValue: jasmine.Spy } = jasmine.createSpyObj('TranslateService', ['getTheValue']);
+    const stubValue = 'stub value';
+    translateServiceSpy.getTheValue.and.returnValue(stubValue);
+
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
       declarations: [
         AppComponent
       ],
+      imports: [
+        TranslateModule.forRoot()
+      ],
+      providers: [
+        TranslateService,
+        { provide: SwUpdate, useClass: SwUpdateServerMock }
+      ]
     }).compileComponents();
   }));
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'ppc'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('ppc');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('ppc app is running!');
+    appComponent = fixture.componentInstance;
   });
+
+  it('should create the app', () => {
+    expect(appComponent).toBeTruthy();
+  });
+
 });

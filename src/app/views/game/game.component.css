@@ -1,9 +1,21 @@
 .fa {
-    cursor:pointer;
-    font-size:6em;
+  font-size:6em;
 }
+
+.fa-player {
+  cursor:pointer;
+}
+
 .score {
     font-size:1em;
     margin-top:1em;
     margin-left:1em;
+}
+
+.selectedWeapon {
+  color: background;
+}
+
+.winner {
+  background-color: green;
 }

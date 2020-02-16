@@ -2,7 +2,9 @@ import { Route, PreloadingStrategy } from '@angular/router';
 import { Observable } from 'rxjs';
 import { of, timer } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
+import { Injectable } from "@angular/core";
 
+@Injectable()
 export class AppPreloadingStrategy implements PreloadingStrategy {
 
     preload(route: Route, load: Function): Observable<any> {

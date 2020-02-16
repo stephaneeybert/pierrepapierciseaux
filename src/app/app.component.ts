@@ -17,16 +17,16 @@ export class AppComponent implements OnInit {
     private swUpdate: SwUpdate,
     private translateService: TranslateService,
     private uiService: UiService
-  ) {
-    translateService.addLangs([LANGUAGE_CODE_ENGLISH, LANGUAGE_CODE_FRANCAIS])
-    // The default language used as a fallback if a translation isn't found for the current language
-    translateService.setDefaultLang(LANGUAGE_CODE_FRANCAIS);
-    // The language to use
-    translateService.use(LANGUAGE_CODE_FRANCAIS);
-    console.log('The browser current language is: ' + translateService.getBrowserLang());
-  }
+  ) { }
 
   ngOnInit() {
+    this.translateService.addLangs([LANGUAGE_CODE_ENGLISH, LANGUAGE_CODE_FRANCAIS])
+    // The default language used as a fallback if a translation isn't found for the current language
+    this.translateService.setDefaultLang(LANGUAGE_CODE_FRANCAIS);
+    // The language to use
+    this.translateService.use(LANGUAGE_CODE_FRANCAIS);
+    console.log('The browser current language is: ' + this.translateService.getBrowserLang());
+
     const appNewVersion = this.translateService.instant('app.new_version_available');
     console.log(appNewVersion);
     if (this.swUpdate.isEnabled) {
