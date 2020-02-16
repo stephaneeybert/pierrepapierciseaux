@@ -1,4 +1,4 @@
-import { async, TestBed, ComponentFixture } from '@angular/core/testing';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { SwUpdate } from '@angular/service-worker';
 import { TranslateService, TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { AppComponent } from './app.component';
@@ -8,7 +8,7 @@ describe('AppComponent', () => {
   let appComponent: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     const translateServiceSpy: { getTheValue: jasmine.Spy } = jasmine.createSpyObj('TranslateService', ['getTheValue']);
     const stubValue = 'stub value';
     translateServiceSpy.getTheValue.and.returnValue(stubValue);

@@ -9,7 +9,7 @@ describe('GameComponent', () => {
   let component: GameComponent;
   let fixture: ComponentFixture<GameComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
         GameComponent
@@ -20,7 +20,7 @@ describe('GameComponent', () => {
           .withDefaultLanguage(ENGLISH_LANGUAGE)
       ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(GameComponent);
