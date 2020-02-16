@@ -52,4 +52,10 @@ describe('GameComponent', () => {
       expect(component.opponentWeapon).toBeGreaterThanOrEqual(1);
     })
   }));
+
+  it('should have picked an opponent weapon once the player picked one', () => {
+    const WEAPON_ROCK: number = 1;
+    component.playerPickWeapon(WEAPON_ROCK);
+    expect(component.opponentWeapon).toBeGreaterThanOrEqual(1);
+  });
 });
