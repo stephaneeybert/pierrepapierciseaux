@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { GameService } from '@app/core/service/game.service';
-import { Subscription, timer } from 'rxjs';
+import { Subscription, timer, Observable } from 'rxjs';
 
 const RESULT_WIN = 'WIN';
 const RESULT_LOST = 'LOST';
@@ -41,19 +41,18 @@ export class GameComponent implements OnDestroy {
     }
 
     this.resetGame();
-    this.waitingForOpponentToPlay = true;
     this.playerWeapon = weapon;
 
-    timer(OPPONENT_PLAYTIME).subscribe(() => {
-      this.opponentPickWeapon();
-
+    this.waitingForOpponentToPlay = true;
+    this.opponentPickWeapon().subscribe(() => {
+      this.waitingForOpponentToPlay = false;
       this.checkResult();
     });
   }
 
-  private opponentPickWeapon(): void {
+  private opponentPickWeapon(): Observable<number> {
     this.opponentWeapon = this.gameService.getRandomWeapon();
-    this.waitingForOpponentToPlay = false;
+    return timer(OPPONENT_PLAYTIME);
   }
 
   private checkResult(): void {
