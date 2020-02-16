@@ -58,4 +58,10 @@ describe('GameComponent', () => {
     component.playerPickWeapon(WEAPON_ROCK);
     expect(component.opponentWeapon).toBeGreaterThanOrEqual(1);
   });
+
+  it('should have set the game result once the player picked one', () => {
+    const WEAPON_ROCK: number = 1;
+    component.playerPickWeapon(WEAPON_ROCK);
+    expect(component.gameResult).toBeDefined();
+  });
 });
