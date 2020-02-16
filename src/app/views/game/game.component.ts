@@ -50,7 +50,7 @@ export class GameComponent implements OnDestroy {
     });
   }
 
-  private opponentPickWeapon(): Observable<number> {
+  public opponentPickWeapon(): Observable<number> {
     this.opponentWeapon = this.gameService.getRandomWeapon();
     return timer(OPPONENT_PLAYTIME);
   }

@@ -46,4 +46,10 @@ describe('GameComponent', () => {
     expect(headers[1].textContent?.trim()).toContain('Me');
   });
 
+  it('should have picked an opponent weapon', async(() => {
+    component.opponentPickWeapon();
+    fixture.whenStable().then(() => {
+      expect(component.opponentWeapon).toBeGreaterThanOrEqual(1);
+    })
+  }));
 });
