@@ -29,13 +29,13 @@ export class GameComponent implements OnDestroy {
     private gameService: GameService
   ) { }
 
-  ngOnDestroy() {
+  public ngOnDestroy() {
     if (this.opponentPlaySubscription != null) {
       this.opponentPlaySubscription.unsubscribe();
     }
   }
 
-  playerPickWeapon(weapon: number): void {
+  public playerPickWeapon(weapon: number): void {
     if (this.waitingForOpponentToPlay) {
       return;
     }
