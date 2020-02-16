@@ -19,7 +19,7 @@ export class GameComponent implements OnDestroy {
   opponentWeapon: number = 0;
   playerScore: number = 0
   opponentScore: number = 0;
-  playerResult: string = '';
+  gameResult: string = '';
 
   waitingForOpponentToPlay: boolean = false;
 
@@ -46,7 +46,7 @@ export class GameComponent implements OnDestroy {
     this.waitingForOpponentToPlay = true;
     this.opponentPickWeapon().subscribe(() => {
       this.waitingForOpponentToPlay = false;
-      this.checkResult();
+      this.decideResult();
     });
   }
 
@@ -55,17 +55,17 @@ export class GameComponent implements OnDestroy {
     return timer(OPPONENT_PLAYTIME);
   }
 
-  private checkResult(): void {
+  private decideResult(): void {
     if (this.playerWeapon == this.opponentWeapon) {
       // The play is a tie
-      this.playerResult = RESULT_TIE;
+      this.gameResult = RESULT_TIE;
     } else if ((this.playerWeapon - this.opponentWeapon + 3) % 3 == 1) {
       // The player wins
-      this.playerResult = RESULT_WIN;
+      this.gameResult = RESULT_WIN;
       this.playerScore = this.playerScore + 1;
     } else {
       // The player looses to the opponent
-      this.playerResult = RESULT_LOST;
+      this.gameResult = RESULT_LOST;
       this.opponentScore = this.opponentScore + 1;
     }
   }
