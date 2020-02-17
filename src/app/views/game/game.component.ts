@@ -2,9 +2,13 @@ import { Component, OnDestroy } from '@angular/core';
 import { GameService } from '@app/core/service/game.service';
 import { Subscription, timer, Observable } from 'rxjs';
 
-const RESULT_WIN = 'WIN';
-const RESULT_LOST = 'LOST';
-const RESULT_TIE = 'TIE';
+const WEAPON_ROCK: number = 1;
+const WEAPON_PAPER: number = 2;
+const WEAPON_SCISSORS: number = 3;
+
+const GAME_WIN = 'WIN';
+const GAME_LOSS = 'LOSS';
+const GAME_TIE = 'TIE';
 const OPPONENT_PLAYTIME: number = 500;
 
 @Component({
@@ -35,7 +39,19 @@ export class GameComponent implements OnDestroy {
     }
   }
 
-  public playerPickWeapon(weapon: number): void {
+  public playerPicksRock(): void {
+    this.playerPicksWeapon(WEAPON_ROCK);
+  }
+
+  public playerPicksPaper(): void {
+    this.playerPicksWeapon(WEAPON_PAPER);
+  }
+
+  public playerPicksScissors(): void {
+    this.playerPicksWeapon(WEAPON_SCISSORS);
+  }
+
+  private playerPicksWeapon(weapon: number): void {
     if (this.waitingForOpponentToPlay) {
       return;
     }
@@ -44,28 +60,63 @@ export class GameComponent implements OnDestroy {
     this.playerWeapon = weapon;
 
     this.waitingForOpponentToPlay = true;
-    this.opponentPickWeapon().subscribe(() => {
+    this.opponentPickRandomWeapon().subscribe(() => {
       this.waitingForOpponentToPlay = false;
-      this.decideResult();
+      this.gameResult = this.getGameOutcome(this.playerWeapon, this.opponentWeapon);
+      this.updateScores(this.gameResult);
     });
   }
 
-  public opponentPickWeapon(): Observable<number> {
-    this.opponentWeapon = this.gameService.getRandomWeapon();
+  public opponentPickRandomWeapon(): Observable<number> {
+    this.opponentPickWeapon(this.gameService.getRandomWeapon());
     return timer(OPPONENT_PLAYTIME);
   }
 
-  private decideResult(): void {
-    if (this.playerWeapon == this.opponentWeapon) {
+  public opponentPickWeapon(weapon: number): void {
+    this.opponentWeapon = weapon;
+  }
+
+  public getGameOutcome(playerWeapon: number, opponentWeapon: number): string {
+    if (playerWeapon == opponentWeapon) {
       // The play is a tie
-      this.gameResult = RESULT_TIE;
-    } else if ((this.playerWeapon - this.opponentWeapon + 3) % 3 == 1) {
+      return GAME_TIE;
+    } else if ((playerWeapon - opponentWeapon + 3) % 3 == 1) {
       // The player wins
-      this.gameResult = RESULT_WIN;
-      this.playerScore = this.playerScore + 1;
+      return GAME_WIN;
     } else {
       // The player looses to the opponent
-      this.gameResult = RESULT_LOST;
+      return GAME_LOSS;
+    }
+  }
+
+  public weaponIsRock(weapon: number): boolean {
+    return WEAPON_ROCK == weapon;
+  }
+
+  public weaponIsPaper(weapon: number): boolean {
+    return WEAPON_PAPER == weapon;
+  }
+
+  public weaponIsScissors(weapon: number): boolean {
+    return WEAPON_SCISSORS == weapon;
+  }
+
+  public gameIsTie(gameResult: string): boolean {
+    return GAME_TIE == gameResult;
+  }
+
+  public gameIsWin(gameResult: string): boolean {
+    return GAME_WIN == gameResult;
+  }
+
+  public gameIsLoss(gameResult: string): boolean {
+    return GAME_LOSS == gameResult;
+  }
+
+  private updateScores(gameResult: string) {
+    if (this.gameIsWin(gameResult)) {
+      this.playerScore = this.playerScore + 1;
+    } else if (this.gameIsLoss(gameResult)) {
       this.opponentScore = this.opponentScore + 1;
     }
   }

@@ -5,6 +5,10 @@ import { TranslateTestingModule } from 'ngx-translate-testing';
 
 const ENGLISH_LANGUAGE = 'en';
 
+const WEAPON_ROCK: number = 1;
+const WEAPON_PAPER: number = 2;
+const WEAPON_SCISSORS: number = 3;
+
 describe('GameComponent', () => {
   let component: GameComponent;
   let fixture: ComponentFixture<GameComponent>;
@@ -47,21 +51,19 @@ describe('GameComponent', () => {
   });
 
   it('should have picked an opponent weapon', async(() => {
-    component.opponentPickWeapon();
+    component.opponentPickRandomWeapon();
     fixture.whenStable().then(() => {
       expect(component.opponentWeapon).toBeGreaterThanOrEqual(1);
     })
   }));
 
   it('should have picked an opponent weapon once the player picked one', () => {
-    const WEAPON_ROCK: number = 1;
-    component.playerPickWeapon(WEAPON_ROCK);
+    component.playerPicksRock();
     expect(component.opponentWeapon).toBeGreaterThanOrEqual(1);
   });
 
   it('should have set the game result once the player picked one', () => {
-    const WEAPON_ROCK: number = 1;
-    component.playerPickWeapon(WEAPON_ROCK);
+    component.playerPicksRock();
     expect(component.gameResult).toBeDefined();
   });
 });
