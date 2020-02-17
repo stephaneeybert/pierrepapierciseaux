@@ -66,4 +66,18 @@ describe('GameComponent', () => {
     component.playerPicksRock();
     expect(component.gameResult).toBeDefined();
   });
+
+  it('should result in a game tie', () => {
+    expect(component.gameIsTie(component.getGameOutcome(WEAPON_ROCK, WEAPON_ROCK))).toBeTrue();
+  });
+
+  it('should result in a game win', () => {
+    expect(component.gameIsWin(component.getGameOutcome(WEAPON_ROCK, WEAPON_SCISSORS))).toBeTrue();
+    expect(component.gameIsWin(component.getGameOutcome(WEAPON_PAPER, WEAPON_ROCK))).toBeTrue();
+  });
+
+  it('should result in a game loss', () => {
+    expect(component.gameIsLoss(component.getGameOutcome(WEAPON_ROCK, WEAPON_PAPER))).toBeTrue();
+    expect(component.gameIsLoss(component.getGameOutcome(WEAPON_SCISSORS, WEAPON_ROCK))).toBeTrue();
+  });
 });
