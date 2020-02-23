@@ -16,6 +16,6 @@ import { AppLayoutModule } from '@app/layouts/app-layout.module';
     AppUiModule,
     AppLayoutModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
