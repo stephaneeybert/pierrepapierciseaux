@@ -14,7 +14,7 @@ export class Store<T> {
     return this._state$.getValue();
   }
 
-  public setState(nextState: T) {
+  public setState(nextState: T): void {
     this._state$.next(nextState);
   }
 

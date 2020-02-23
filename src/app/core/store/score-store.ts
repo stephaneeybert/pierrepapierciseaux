@@ -16,7 +16,7 @@ export class ScoreStore extends Store<Array<Score>> {
     return this.state$;
   }
 
-  public addScore(score: Score) {
+  public addScore(score: Score): void {
     this.getState().push(score);
   }
 
@@ -24,7 +24,7 @@ export class ScoreStore extends Store<Array<Score>> {
     return this.getState().length;
   }
 
-  public clearScores() {
+  public clearScores(): void {
     this.setState([]);
   }
 }

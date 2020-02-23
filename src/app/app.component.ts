@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
     this.metaData();
   }
 
-  private metaData() {
+  private metaData(): void {
     this.uiService.setMetaData({
       title: this.translateService.instant('app.title'),
       description: this.translateService.instant('app.description')
