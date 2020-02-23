@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, OnChanges } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -13,7 +13,7 @@ const LANGUAGE_CODE_FRANCAIS = 'fr';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit, OnChanges, OnDestroy {
 
   private swUpdateSubscription?: Subscription;
 
@@ -30,7 +30,9 @@ export class AppComponent implements OnInit, OnDestroy {
     // The language to use
     this.translateService.use(LANGUAGE_CODE_FRANCAIS);
     console.log('The browser current language is: ' + this.translateService.getBrowserLang());
+  }
 
+  public ngOnChanges() {
     if (this.swUpdate.isEnabled) {
       this.swUpdateSubscription = this.swUpdate.available.subscribe(() => {
         const appNewVersion = this.translateService.instant('app.new_version_available');
@@ -43,17 +45,17 @@ export class AppComponent implements OnInit, OnDestroy {
     this.metaData();
   }
 
-  public ngOnDestroy() {
-    if (this.swUpdateSubscription != null) {
-      this.swUpdateSubscription.unsubscribe();
-    }
-  }
-
   private metaData(): void {
     this.uiService.setMetaData({
       title: this.translateService.instant('app.title'),
       description: this.translateService.instant('app.description')
     });
+  }
+
+  public ngOnDestroy() {
+    if (this.swUpdateSubscription != null) {
+      this.swUpdateSubscription.unsubscribe();
+    }
   }
 
 }
