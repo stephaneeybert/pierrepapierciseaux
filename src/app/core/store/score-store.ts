@@ -8,8 +8,7 @@ import { Score } from '@app/views/game/score';
 })
 export class ScoreStore extends Store<Array<Score>> {
 
-  constructor(
-  ) {
+  constructor() {
     super(new Array<Score>());
   }
 
