@@ -1,8 +1,6 @@
 <div>
     <mat-toolbar>
-        <h2>{{ 'game.opponent' | translate }}</h2>
-        <span class="fill-remaining-space"></span>
-        <button mat-fab color="primary" [ngClass]="{'winner':gameIsLoss(gameResult)}" class="score">{{ opponentScore }}</button>
+        <h2 [ngClass]="{'winner':gameIsLoss(gameResult)}">{{ 'game.opponent' | translate }} {{ opponentScore }}</h2>
     </mat-toolbar>
     <mat-grid-list flex cols="3" rowHeight="2:1">
         <mat-grid-tile>
@@ -23,9 +21,7 @@
 <br /><br /><br />
 <div>
     <mat-toolbar>
-        <h2>{{ 'game.me' | translate }}</h2>
-        <span class="fill-remaining-space"></span>
-        <button mat-fab color="primary" [ngClass]="{'winner':gameIsWin(gameResult)}" class="score">{{ playerScore }}</button>
+        <h2 [ngClass]="{'winner':gameIsWin(gameResult)}">{{ 'game.me' | translate }} {{ playerScore }}</h2>
     </mat-toolbar>
     <mat-grid-list cols="3" rowHeight="2:1">
         <mat-grid-tile>
