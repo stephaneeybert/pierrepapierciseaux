@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { GameService } from '@app/core/service/game.service';
-import { timer, Observable } from 'rxjs';
+import { timer, Observable, Subscription } from 'rxjs';
 
 const WEAPON_ROCK: number = 1;
 const WEAPON_PAPER: number = 2;
@@ -17,7 +17,7 @@ const OPPONENT_PLAYTIME: number = 500;
   styleUrls: ['./game.component.css'],
   providers: [ GameService ]
 })
-export class GameComponent {
+export class GameComponent implements OnDestroy {
 
   playerWeapon: number = 0;
   opponentWeapon: number = 0;
@@ -27,9 +27,17 @@ export class GameComponent {
 
   waitingForOpponentToPlay: boolean = false;
 
+  private opponentPickedWeaponSubscription?: Subscription;
+
   constructor(
     private gameService: GameService
   ) { }
+
+  public ngOnDestroy() {
+    if (this.opponentPickedWeaponSubscription != null) {
+      this.opponentPickedWeaponSubscription.unsubscribe();
+    }
+  }
 
   public playerPicksRock(): void {
     this.playerPicksWeapon(WEAPON_ROCK);
@@ -52,7 +60,7 @@ export class GameComponent {
     this.playerWeapon = weapon;
 
     this.waitingForOpponentToPlay = true;
-    this.opponentPickRandomWeapon().subscribe(() => {
+    this.opponentPickedWeaponSubscription = this.opponentPickRandomWeapon().subscribe(() => {
       this.waitingForOpponentToPlay = false;
       this.gameResult = this.getGameOutcome(this.playerWeapon, this.opponentWeapon);
       this.updateScores(this.gameResult);

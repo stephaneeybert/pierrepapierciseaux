@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import { TranslateService } from '@ngx-translate/core';
 
 import { UiService } from '@app/core/service/ui.service';
+import { Subscription } from 'rxjs';
 
 const LANGUAGE_CODE_ENGLISH = 'en';
 const LANGUAGE_CODE_FRANCAIS = 'fr';
@@ -12,7 +13,10 @@ const LANGUAGE_CODE_FRANCAIS = 'fr';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
+
+  private swUpdateSubscription?: Subscription;
+
   constructor(
     private swUpdate: SwUpdate,
     private translateService: TranslateService,
@@ -30,7 +34,7 @@ export class AppComponent implements OnInit {
     const appNewVersion = this.translateService.instant('app.new_version_available');
     console.log(appNewVersion);
     if (this.swUpdate.isEnabled) {
-      this.swUpdate.available.subscribe(() => {
+      this.swUpdateSubscription = this.swUpdate.available.subscribe(() => {
         const appNewVersion = this.translateService.instant('app.new_version_available');
         if (confirm(appNewVersion)) {
           window.location.reload();
@@ -39,6 +43,12 @@ export class AppComponent implements OnInit {
     }
 
     this.metaData();
+  }
+
+  public ngOnDestroy() {
+    if (this.swUpdateSubscription != null) {
+      this.swUpdateSubscription.unsubscribe();
+    }
   }
 
   private metaData(): void {
