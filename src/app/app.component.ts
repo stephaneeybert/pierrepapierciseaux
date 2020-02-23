@@ -31,8 +31,6 @@ export class AppComponent implements OnInit, OnDestroy {
     this.translateService.use(LANGUAGE_CODE_FRANCAIS);
     console.log('The browser current language is: ' + this.translateService.getBrowserLang());
 
-    const appNewVersion = this.translateService.instant('app.new_version_available');
-    console.log(appNewVersion);
     if (this.swUpdate.isEnabled) {
       this.swUpdateSubscription = this.swUpdate.available.subscribe(() => {
         const appNewVersion = this.translateService.instant('app.new_version_available');
