@@ -5,6 +5,7 @@ import { AppPreloadingStrategy } from './app-preloading-strategy';
 import { UnsecuredLayoutComponent } from './layouts/unsecured/unsecured.layout.component';
 import { GameComponent } from '@app/views/game/game.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { ScoreComponent } from './views/game/score.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
       {
         path: 'game',
         component: GameComponent
+      },
+      {
+        path: 'scores',
+        component: ScoreComponent
       },
       {
         path: '',

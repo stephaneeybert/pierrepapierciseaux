@@ -1,6 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { GameService } from '@app/core/service/game.service';
 import { Subscription, timer, Observable } from 'rxjs';
+import { ScoreStore } from '@app/core/store/score-store';
 
 const WEAPON_ROCK: number = 1;
 const WEAPON_PAPER: number = 2;
@@ -30,6 +31,7 @@ export class GameComponent implements OnDestroy {
   private opponentPlaySubscription?: Subscription;
 
   constructor(
+    private scoreStore: ScoreStore,
     private gameService: GameService
   ) { }
 
@@ -119,6 +121,7 @@ export class GameComponent implements OnDestroy {
     } else if (this.gameIsLoss(gameResult)) {
       this.opponentScore = this.opponentScore + 1;
     }
+    this.gameService.addScore(this.playerScore, this.opponentScore);
   }
 
   private resetGame(): void {

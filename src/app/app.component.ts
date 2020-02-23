@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
     private uiService: UiService
   ) { }
 
-  ngOnInit() {
+  public ngOnInit() {
     this.translateService.addLangs([LANGUAGE_CODE_ENGLISH, LANGUAGE_CODE_FRANCAIS])
     // The default language used as a fallback if a translation isn't found for the current language
     this.translateService.setDefaultLang(LANGUAGE_CODE_FRANCAIS);

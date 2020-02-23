@@ -1,0 +1,20 @@
+<mat-toolbar>
+  <h2 (click)="clearScores()" class="action">{{ 'game.clear_scores' | translate }}</h2>
+</mat-toolbar>
+
+<mat-grid-list flex cols="2" rowHeight="4:1">
+  <mat-grid-tile>
+    <u>{{ 'game.me' | translate }}</u>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <u>{{ 'game.opponent' | translate }}</u>
+  </mat-grid-tile>
+  <ng-container *ngFor="let score of scores$ | async">
+    <mat-grid-tile>
+      {{score.player}}
+    </mat-grid-tile>
+    <mat-grid-tile>
+      {{score.opponent}}
+    </mat-grid-tile>
+  </ng-container>
+</mat-grid-list>
