@@ -33,7 +33,7 @@ export class GameComponent implements OnDestroy {
     private gameService: GameService
   ) { }
 
-  public ngOnDestroy() {
+  public ngOnDestroy(): void {
     if (this.opponentPlaySubscription != null) {
       this.opponentPlaySubscription.unsubscribe();
     }
@@ -113,7 +113,7 @@ export class GameComponent implements OnDestroy {
     return GAME_LOSS == gameResult;
   }
 
-  private updateScores(gameResult: string) {
+  private updateScores(gameResult: string): void {
     if (this.gameIsWin(gameResult)) {
       this.playerScore = this.playerScore + 1;
     } else if (this.gameIsLoss(gameResult)) {
@@ -121,7 +121,7 @@ export class GameComponent implements OnDestroy {
     }
   }
 
-  private resetGame() {
+  private resetGame(): void {
     this.playerWeapon = 0;
     this.opponentWeapon = 0;
   }
