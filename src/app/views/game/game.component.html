@@ -1,6 +1,6 @@
 <div>
     <mat-toolbar>
-        <h2 [ngClass]="{'winner':gameIsLoss(gameResult)}">{{ 'game.opponent' | translate }} {{ opponentScore }}</h2>
+        <h2 [ngClass]="{'winner':gameIsLoss(gameResult)}">{{ 'game.opponent' | translate }} - {{ 'game.score' | translate }}: {{ opponentScore }}</h2>
     </mat-toolbar>
     <mat-grid-list flex cols="3" rowHeight="2:1">
         <mat-grid-tile>
@@ -21,7 +21,7 @@
 <br /><br /><br />
 <div>
     <mat-toolbar>
-        <h2 [ngClass]="{'winner':gameIsWin(gameResult)}">{{ 'game.me' | translate }} {{ playerScore }}</h2>
+        <h2 [ngClass]="{'winner':gameIsWin(gameResult)}">{{ 'game.me' | translate }} - {{ 'game.score' | translate }}: {{ playerScore }}</h2>
     </mat-toolbar>
     <mat-grid-list cols="3" rowHeight="2:1">
         <mat-grid-tile>
