@@ -10,7 +10,7 @@ export class Store<T> {
     this.state$ = this._state$.asObservable();
   }
 
-  public getState(): T {
+  protected getState(): T {
     return this._state$.getValue();
   }
 
