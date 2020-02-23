@@ -1,7 +1,6 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { GameService } from '@app/core/service/game.service';
-import { Subscription, timer, Observable } from 'rxjs';
-import { ScoreStore } from '@app/core/store/score-store';
+import { timer, Observable } from 'rxjs';
 
 const WEAPON_ROCK: number = 1;
 const WEAPON_PAPER: number = 2;
@@ -18,7 +17,7 @@ const OPPONENT_PLAYTIME: number = 500;
   styleUrls: ['./game.component.css'],
   providers: [ GameService ]
 })
-export class GameComponent implements OnDestroy {
+export class GameComponent {
 
   playerWeapon: number = 0;
   opponentWeapon: number = 0;
@@ -28,18 +27,9 @@ export class GameComponent implements OnDestroy {
 
   waitingForOpponentToPlay: boolean = false;
 
-  private opponentPlaySubscription?: Subscription;
-
   constructor(
-    private scoreStore: ScoreStore,
     private gameService: GameService
   ) { }
-
-  public ngOnDestroy(): void {
-    if (this.opponentPlaySubscription != null) {
-      this.opponentPlaySubscription.unsubscribe();
-    }
-  }
 
   public playerPicksRock(): void {
     this.playerPicksWeapon(WEAPON_ROCK);
