@@ -2,7 +2,7 @@
   "app": {
     "title": "Rock Paper Scissors",
     "description": "A game of rock paper scissors",
-    "new_version_available": "'A newer version of the application is available. Load the new version ?'"
+    "new_version_available": "A newer version of the application is available. Load the new version ?"
   },
   "game": {
     "game": "Game",
