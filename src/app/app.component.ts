@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, OnChanges } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -13,7 +13,7 @@ const LANGUAGE_CODE_FRANCAIS = 'fr';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, OnChanges, OnDestroy {
+export class AppComponent implements OnInit, OnDestroy {
 
   private swUpdateSubscription?: Subscription;
 
@@ -24,6 +24,14 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
   ) { }
 
   public ngOnInit() {
+    this.initLanguageTranslation();
+
+    this.translateService.get('init').subscribe((text: string) => {
+      this.afterLanguageResourcesLoaded();
+    });
+  }
+
+  private initLanguageTranslation(): void {
     this.translateService.addLangs([LANGUAGE_CODE_ENGLISH, LANGUAGE_CODE_FRANCAIS])
     // The default language used as a fallback if a translation isn't found for the current language
     this.translateService.setDefaultLang(LANGUAGE_CODE_FRANCAIS);
@@ -32,7 +40,12 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
     console.log('The browser current language is: ' + this.translateService.getBrowserLang());
   }
 
-  public ngOnChanges() {
+  private afterLanguageResourcesLoaded(): void {
+    this.checkForAppUpdate();
+    this.setAppMetaData();
+  }
+
+  private checkForAppUpdate(): void {
     if (this.swUpdate.isEnabled) {
       this.swUpdateSubscription = this.swUpdate.available.subscribe(() => {
         const appNewVersion = this.translateService.instant('app.new_version_available');
@@ -41,11 +54,9 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
         }
       });
     }
-
-    this.metaData();
   }
 
-  private metaData(): void {
+  private setAppMetaData(): void {
     this.uiService.setMetaData({
       title: this.translateService.instant('app.title'),
       description: this.translateService.instant('app.description')
