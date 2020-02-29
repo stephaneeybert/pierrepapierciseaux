@@ -8,6 +8,7 @@ import { MaterialModule } from '@app/material.module';
 import { UnsecuredLayoutComponent } from '@app/layouts/unsecured/unsecured.layout.component';
 import { HeaderComponent } from '@app/layouts/unsecured/header.component';
 import { UnsecuredSidenavComponent } from '@app/layouts/unsecured/unsecured.sidenav.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { UnsecuredSidenavComponent } from '@app/layouts/unsecured/unsecured.side
     AppRoutingModule,
     LayoutModule,
     MaterialModule,
+    TranslateModule
   ],
   exports: [
     AppRoutingModule,

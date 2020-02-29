@@ -6,6 +6,7 @@ import { CoreModule } from './core.module';
 import { AppUiModule } from './app-ui.module';
 import { AppLayoutModule } from '@app/layouts/app-layout.module';
 import { ScoreComponent } from './views/game/score.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ScoreComponent } from './views/game/score.component';
   imports: [
     CoreModule,
     AppUiModule,
-    AppLayoutModule
+    AppLayoutModule,
+    TranslateModule
   ],
   bootstrap: [ AppComponent ]
 })

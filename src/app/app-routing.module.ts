@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppPreloadingStrategy } from './app-preloading-strategy';
 import { UnsecuredLayoutComponent } from './layouts/unsecured/unsecured.layout.component';
 import { GameComponent } from '@app/views/game/game.component';
-import { TranslateModule } from '@ngx-translate/core';
 import { ScoreComponent } from './views/game/score.component';
 
 const routes: Routes = [
@@ -35,8 +34,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes, { preloadingStrategy: AppPreloadingStrategy })
   ],
   exports: [
-    RouterModule,
-    TranslateModule
+    RouterModule
   ]
 })
 export class AppRoutingModule { }
