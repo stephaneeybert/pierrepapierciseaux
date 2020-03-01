@@ -1,0 +1,90 @@
+{
+  "configVersion": 1,
+  "timestamp": 1583078135865,
+  "index": "/stephaneeybert/pierrepapierciseaux/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/stephaneeybert/pierrepapierciseaux/favicon.ico",
+        "/stephaneeybert/pierrepapierciseaux/index.html",
+        "/stephaneeybert/pierrepapierciseaux/main-es2015.057bd0c9e3419618be7b.js",
+        "/stephaneeybert/pierrepapierciseaux/main-es5.057bd0c9e3419618be7b.js",
+        "/stephaneeybert/pierrepapierciseaux/manifest.webmanifest",
+        "/stephaneeybert/pierrepapierciseaux/polyfills-es2015.ca64e4516afbb1b890d5.js",
+        "/stephaneeybert/pierrepapierciseaux/polyfills-es5.277e2e1d6fb2daf91a5c.js",
+        "/stephaneeybert/pierrepapierciseaux/runtime-es2015.0811dcefd377500b5b1a.js",
+        "/stephaneeybert/pierrepapierciseaux/runtime-es5.0811dcefd377500b5b1a.js",
+        "/stephaneeybert/pierrepapierciseaux/styles.bcd36793325ea7221a16.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/stephaneeybert/pierrepapierciseaux/assets/i18n/en.json",
+        "/stephaneeybert/pierrepapierciseaux/assets/i18n/fr.json",
+        "/stephaneeybert/pierrepapierciseaux/assets/icons/icon-128x128.png",
+        "/stephaneeybert/pierrepapierciseaux/assets/icons/icon-144x144.png",
+        "/stephaneeybert/pierrepapierciseaux/assets/icons/icon-152x152.png",
+        "/stephaneeybert/pierrepapierciseaux/assets/icons/icon-192x192.png",
+        "/stephaneeybert/pierrepapierciseaux/assets/icons/icon-32x32.png",
+        "/stephaneeybert/pierrepapierciseaux/assets/icons/icon-384x384.png",
+        "/stephaneeybert/pierrepapierciseaux/assets/icons/icon-512x512.png",
+        "/stephaneeybert/pierrepapierciseaux/assets/icons/icon-72x72.png",
+        "/stephaneeybert/pierrepapierciseaux/assets/icons/icon-96x96.png",
+        "/stephaneeybert/pierrepapierciseaux/assets/icons/rock-paper-scissors.png",
+        "/stephaneeybert/pierrepapierciseaux/assets/icons/rock.jpg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/stephaneeybert/pierrepapierciseaux/assets/i18n/en.json": "d46140851566ceeac820edb33d16b20f5cbccfc9",
+    "/stephaneeybert/pierrepapierciseaux/assets/i18n/fr.json": "229dfc86330a9b8ac5eec3658949dfe801e46722",
+    "/stephaneeybert/pierrepapierciseaux/assets/icons/icon-128x128.png": "2225171174faddecba7afa0bf859236052a9a41f",
+    "/stephaneeybert/pierrepapierciseaux/assets/icons/icon-144x144.png": "b6c0509564397ca7fd1e022a9ebcc88999373499",
+    "/stephaneeybert/pierrepapierciseaux/assets/icons/icon-152x152.png": "a982a8a822ee7de141f3d470334ef4ebdc5227e3",
+    "/stephaneeybert/pierrepapierciseaux/assets/icons/icon-192x192.png": "742ae7a63ffca530f4fe0d36d6c542ee9b93f342",
+    "/stephaneeybert/pierrepapierciseaux/assets/icons/icon-32x32.png": "743a7032b86d280d7380669b02a6b1fbdd767d22",
+    "/stephaneeybert/pierrepapierciseaux/assets/icons/icon-384x384.png": "9e81c6b052d05eb7a87a0c29ca8205b3f4b7797d",
+    "/stephaneeybert/pierrepapierciseaux/assets/icons/icon-512x512.png": "c99284f076c8498e168a07d4ebc313ad8789aa78",
+    "/stephaneeybert/pierrepapierciseaux/assets/icons/icon-72x72.png": "e114ff6e19bde290a01e5e5afd57aba9a047c076",
+    "/stephaneeybert/pierrepapierciseaux/assets/icons/icon-96x96.png": "1dcb5f44d2b33b4582c34584d652e2372116a5e1",
+    "/stephaneeybert/pierrepapierciseaux/assets/icons/rock-paper-scissors.png": "8bb07d912dce22238b0b8f5166efdf9c51974ae2",
+    "/stephaneeybert/pierrepapierciseaux/assets/icons/rock.jpg": "0c849b4f7d79044a9dad63befc6005c39c1508a6",
+    "/stephaneeybert/pierrepapierciseaux/favicon.ico": "276464fc9e3f7760055826b98cddf683d82c414f",
+    "/stephaneeybert/pierrepapierciseaux/index.html": "f36d1721cd5d871ccf0fb0c5cddff490810c8c21",
+    "/stephaneeybert/pierrepapierciseaux/main-es2015.057bd0c9e3419618be7b.js": "6c8b6d93f7b47e127bbb07414bc06c952644b059",
+    "/stephaneeybert/pierrepapierciseaux/main-es5.057bd0c9e3419618be7b.js": "ab892ad6cd3c30bf1fab0ad4b4c3c14c310cb18a",
+    "/stephaneeybert/pierrepapierciseaux/manifest.webmanifest": "e368d466ff41984e8902c938161e4efa71ec75d2",
+    "/stephaneeybert/pierrepapierciseaux/polyfills-es2015.ca64e4516afbb1b890d5.js": "8779ed8d9bf0580e1b50b352a9b8fd520be24433",
+    "/stephaneeybert/pierrepapierciseaux/polyfills-es5.277e2e1d6fb2daf91a5c.js": "8d03638471d7374e81cf33adfdea439f84ac3873",
+    "/stephaneeybert/pierrepapierciseaux/runtime-es2015.0811dcefd377500b5b1a.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/stephaneeybert/pierrepapierciseaux/runtime-es5.0811dcefd377500b5b1a.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/stephaneeybert/pierrepapierciseaux/styles.bcd36793325ea7221a16.css": "7c71dadd9f3b41825e64f1c6e074cd0d2466789e"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}

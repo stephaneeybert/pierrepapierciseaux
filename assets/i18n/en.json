@@ -1,0 +1,18 @@
+{
+  "app": {
+    "title": "Rock Paper Scissors",
+    "description": "A game of rock paper scissors",
+    "new_version_available": "A newer version of the application is available. Load the new version ?"
+  },
+  "game": {
+    "game": "Game",
+    "play": "Play",
+    "play_game": "Play a game",
+    "scores": "Scores",
+    "score": "Score",
+    "clear_scores": "Clear the scores",
+    "the_scores": "The scores",
+    "me": "Me",
+    "opponent": "Opponent"
+  }
+}
