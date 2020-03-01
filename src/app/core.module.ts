@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader, TranslatePipe } from '@ngx-translate/core';
 
 export function httpLoaderFactory(httpClient: HttpClient) {
-  return new TranslateHttpLoader(httpClient);
+  return new TranslateHttpLoader(httpClient, './assets/i18n/');
 }
 
 @NgModule({
