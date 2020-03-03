@@ -5,8 +5,4 @@ import { Component } from '@angular/core';
   selector: 'app-unsecured-sidenav',
   templateUrl: './unsecured.sidenav.component.html'
 })
-export class UnsecuredSidenavComponent {
-
-  title = 'MusicNG';
-
-}
+export class UnsecuredSidenavComponent { }
