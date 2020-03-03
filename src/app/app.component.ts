@@ -21,7 +21,7 @@ export class AppComponent implements OnInit, OnDestroy {
   ) { }
 
   public ngOnInit() {
-    this.translateService.get('init').subscribe((text: string) => {
+    this.translateService.get('app.title').subscribe((text: string) => {
       this.afterLanguageResourcesLoaded();
     });
   }
