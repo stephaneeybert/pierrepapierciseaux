@@ -9,7 +9,7 @@
   <mat-grid-tile>
     <u>{{ 'game.opponent' | translate }}</u>
   </mat-grid-tile>
-  <ng-container *ngFor="let score of scores$ | async">
+  <ng-container *ngFor="let score of (scores$ | async).slice().reverse()">
     <mat-grid-tile>
       {{score.player}}
     </mat-grid-tile>
