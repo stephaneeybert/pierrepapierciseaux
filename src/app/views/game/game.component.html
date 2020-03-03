@@ -4,16 +4,16 @@
     </mat-toolbar>
     <mat-grid-list flex cols="3" rowHeight="2:1">
         <mat-grid-tile>
-            <i [ngClass]="{'selectedWeapon':weaponIsRock(opponentWeapon)}" class="fa fa-hand-rock-o"></i>
+            <i [ngClass]="{'selectedWeapon':weaponIsRock(opponentWeapon)}" class="fa fa-opponent fa-hand-rock-o"></i>
         </mat-grid-tile>
         <mat-grid-tile>
             <div>
-                <i [ngClass]="{'selectedWeapon':weaponIsPaper(opponentWeapon)}" class="fa fa-hand-paper-o"></i>
+                <i [ngClass]="{'selectedWeapon':weaponIsPaper(opponentWeapon)}" class="fa fa-opponent fa-hand-paper-o"></i>
             </div>
         </mat-grid-tile>
         <mat-grid-tile>
             <div>
-                <i [ngClass]="{'selectedWeapon':weaponIsScissors(opponentWeapon)}" class="fa fa-hand-scissors-o"></i>
+                <i [ngClass]="{'selectedWeapon':weaponIsScissors(opponentWeapon)}" class="fa fa-opponent fa-hand-scissors-o"></i>
             </div>
         </mat-grid-tile>
     </mat-grid-list>
@@ -25,16 +25,16 @@
     </mat-toolbar>
     <mat-grid-list cols="3" rowHeight="2:1">
         <mat-grid-tile>
-            <i (click)="playerPicksRock()" [ngClass]="{'selectedWeapon':weaponIsRock(playerWeapon)}" class="fa player fa-hand-rock-o"></i>
+            <i (click)="playerPicksRock()" [ngClass]="{'selectedWeapon':weaponIsRock(playerWeapon)}" class="fa fa-player fa-hand-rock-o"></i>
         </mat-grid-tile>
         <mat-grid-tile>
             <div>
-                <i (click)="playerPicksPaper()" [ngClass]="{'selectedWeapon':weaponIsPaper(playerWeapon)}" class="fa player fa-hand-paper-o"></i>
+                <i (click)="playerPicksPaper()" [ngClass]="{'selectedWeapon':weaponIsPaper(playerWeapon)}" class="fa fa-player fa-hand-paper-o"></i>
             </div>
         </mat-grid-tile>
         <mat-grid-tile>
             <div>
-                <i (click)="playerPicksScissors()" [ngClass]="{'selectedWeapon':weaponIsScissors(playerWeapon)}" class="fa player fa-hand-scissors-o"></i>
+                <i (click)="playerPicksScissors()" [ngClass]="{'selectedWeapon':weaponIsScissors(playerWeapon)}" class="fa fa-player fa-hand-scissors-o"></i>
             </div>
         </mat-grid-tile>
     </mat-grid-list>

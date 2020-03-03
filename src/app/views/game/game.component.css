@@ -1,9 +1,17 @@
-.fa {
+.fa-player {
   font-size:4em;
 }
 
-.player {
+.fa-opponent {
+  font-size:2em;
+}
+
+.fa-player, .fa-opponent {
   cursor:pointer;
+}
+
+.fa-player:focus, .fa-opponent:focus {
+  outline:0;
 }
 
 .score {
