@@ -1,13 +1,10 @@
 .fa-player {
   font-size: 4em;
+  cursor: pointer;
 }
 
 .fa-opponent {
   font-size: 2em;
-}
-
-.fa-player, .fa-opponent {
-  cursor: pointer;
 }
 
 .fa-player:focus, .fa-opponent:focus {
