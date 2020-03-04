@@ -21,7 +21,10 @@
 <br /><br /><br />
 <div>
     <mat-toolbar>
-        <h2 [ngClass]="{'winner':gameIsWin(gameResult)}">{{ 'game.me' | translate }} - {{ 'game.score' | translate }}: {{ playerScore }}</h2>
+      <h2 (click)="clearScores()" class="clear_scores">{{ 'game.clear_scores' | translate }}</h2>
+    </mat-toolbar>
+    <mat-toolbar>
+      <h2 [ngClass]="{'winner':gameIsWin(gameResult)}">{{ 'game.me' | translate }} - {{ 'game.score' | translate }}: {{ playerScore }}</h2>
     </mat-toolbar>
     <mat-grid-list cols="3" rowHeight="2:1">
         <mat-grid-tile>

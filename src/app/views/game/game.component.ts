@@ -1,6 +1,8 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { GameService } from '@app/core/service/game.service';
-import { timer, Observable, Subscription } from 'rxjs';
+import { timer, Observable, Subscription, of } from 'rxjs';
+import { Score } from './score';
+import { ScoreStore } from '@app/core/store/score-store';
 
 const WEAPON_ROCK: number = 1;
 const WEAPON_PAPER: number = 2;
@@ -17,7 +19,7 @@ const OPPONENT_PLAYTIME: number = 500;
   styleUrls: ['./game.component.css'],
   providers: [ GameService ]
 })
-export class GameComponent implements OnDestroy {
+export class GameComponent implements OnInit, OnDestroy {
 
   playerWeapon: number = 0;
   opponentWeapon: number = 0;
@@ -29,9 +31,16 @@ export class GameComponent implements OnDestroy {
 
   private opponentPickedWeaponSubscription?: Subscription;
 
+  scores$: Observable<Array<Score>> = of([]);
+
   constructor(
-    private gameService: GameService
+    private gameService: GameService,
+    private scoreStore: ScoreStore
   ) { }
+
+  public ngOnInit(): void {
+    this.scores$ = this.scoreStore.state$;
+  }
 
   public ngOnDestroy() {
     if (this.opponentPickedWeaponSubscription != null) {
@@ -125,6 +134,16 @@ export class GameComponent implements OnDestroy {
   private resetGame(): void {
     this.playerWeapon = 0;
     this.opponentWeapon = 0;
+  }
+
+  private resetScore(): void {
+    this.playerScore = 0;
+    this.opponentScore = 0;
+  }
+
+  public clearScores(): void {
+    this.resetScore();
+    this.scoreStore.clearScores();
   }
 
 }

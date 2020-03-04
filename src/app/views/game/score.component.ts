@@ -20,8 +20,4 @@ export class ScoreComponent implements OnInit {
     this.scores$ = this.scoreStore.state$;
   }
 
-  public clearScores(): void {
-    this.scoreStore.clearScores();
-  }
-
 }
