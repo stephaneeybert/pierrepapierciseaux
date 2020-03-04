@@ -8,7 +8,7 @@
 }
 
 .fa-player:focus, .fa-opponent:focus {
-  outline: 0;
+  outline: 0px;
 }
 
 .score {
