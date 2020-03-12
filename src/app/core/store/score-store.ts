@@ -17,7 +17,9 @@ export class ScoreStore extends Store<Array<Score>> {
   }
 
   public addScore(score: Score): void {
-    this.getState().push(score);
+    const devices = this.getState();
+    devices.push(score);
+    this.setState(devices);
   }
 
   public getNumberOfScores(): number {

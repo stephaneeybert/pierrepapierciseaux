@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Score } from './score';
 import { ScoreStore } from '@app/core/store/score-store';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'scores',
   templateUrl: './score.component.html',
   styleUrls: ['./score.component.css'],
