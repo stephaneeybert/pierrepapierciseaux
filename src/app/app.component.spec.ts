@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { SwUpdateServerMock } from './swupdate-server.mock.service';
 
 describe('AppComponent', () => {
+
   let appComponent: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
 
@@ -25,7 +26,7 @@ describe('AppComponent', () => {
         { provide: SwUpdate, useClass: SwUpdateServerMock }
       ]
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AppComponent);
