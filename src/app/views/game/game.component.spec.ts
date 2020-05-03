@@ -45,9 +45,10 @@ describe('GameComponent', () => {
   it('should render the opponent header', () => {
     const element: HTMLElement = fixture.nativeElement;
     const headers: NodeList = element.querySelectorAll('mat-toolbar h2');
-    expect(headers.length).toBe(2);
+    expect(headers.length).toBe(3);
     expect(headers[0].textContent?.trim()).toContain('Opponent');
-    expect(headers[1].textContent?.trim()).toContain('Me');
+    expect(headers[1].textContent?.trim()).toContain('Clear the scores');
+    expect(headers[2].textContent?.trim()).toContain('Me');
   });
 
   it('should have picked an opponent weapon', async(() => {
