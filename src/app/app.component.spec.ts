@@ -6,8 +6,8 @@ import { SwUpdateServerMock } from './swupdate-server.mock.service';
 
 describe('AppComponent', () => {
 
-  let appComponent: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
+  let appComponent: AppComponent;
 
   beforeEach(() => {
     const translateServiceSpy: { getTheValue: jasmine.Spy } = jasmine.createSpyObj('TranslateService', ['getTheValue']);

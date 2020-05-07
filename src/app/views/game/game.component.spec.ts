@@ -10,8 +10,9 @@ const WEAPON_PAPER: number = 2;
 const WEAPON_SCISSORS: number = 3;
 
 describe('GameComponent', () => {
-  let component: GameComponent;
+
   let fixture: ComponentFixture<GameComponent>;
+  let component: GameComponent;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
