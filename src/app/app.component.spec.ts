@@ -3,6 +3,7 @@ import { SwUpdate } from '@angular/service-worker';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { AppComponent } from './app.component';
 import { SwUpdateServerMock } from './swupdate-server.mock.service';
+import { AppRoutingModule } from './app-routing.module';
 
 describe('AppComponent', () => {
 
@@ -19,6 +20,7 @@ describe('AppComponent', () => {
         AppComponent
       ],
       imports: [
+        AppRoutingModule,
         TranslateModule.forRoot()
       ],
       providers: [
