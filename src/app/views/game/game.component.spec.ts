@@ -2,6 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GameComponent } from './game.component';
 import { TranslateTestingModule } from 'ngx-translate-testing';
+import { AppRoutingModule } from '@app/app-routing.module';
+import { MaterialModule } from '@app/material.module';
 
 const ENGLISH_LANGUAGE: string = 'en';
 const FRENCH_LANGUAGE: string = 'fr';
@@ -21,6 +23,8 @@ describe('GameComponent', () => {
         GameComponent
       ],
       imports: [
+        AppRoutingModule,
+        MaterialModule,
         TranslateTestingModule
         .withTranslations({
           [ENGLISH_LANGUAGE]: require('assets/i18n/en.json'),
