@@ -3,7 +3,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { GameComponent } from './game.component';
 import { TranslateTestingModule } from 'ngx-translate-testing';
 
-const ENGLISH_LANGUAGE = 'en';
+const ENGLISH_LANGUAGE: string = 'en';
+const FRENCH_LANGUAGE: string = 'fr';
 
 const WEAPON_ROCK: number = 1;
 const WEAPON_PAPER: number = 2;
@@ -21,8 +22,11 @@ describe('GameComponent', () => {
       ],
       imports: [
         TranslateTestingModule
-          .withTranslations(ENGLISH_LANGUAGE, require('assets/i18n/en.json'))
-          .withDefaultLanguage(ENGLISH_LANGUAGE)
+        .withTranslations({
+          [ENGLISH_LANGUAGE]: require('assets/i18n/en.json'),
+          [FRENCH_LANGUAGE]: require('assets/i18n/fr.json')
+        })
+      .withDefaultLanguage(ENGLISH_LANGUAGE)
       ],
     }).compileComponents();
   });
