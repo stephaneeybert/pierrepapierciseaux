@@ -1,6 +1,6 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { SwUpdate } from '@angular/service-worker';
-import { TranslateService, TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { AppComponent } from './app.component';
 import { SwUpdateServerMock } from './swupdate-server.mock.service';
 
